@@ -1,0 +1,49 @@
+<h1 class="mt-5">Selectores anidados</h1>
+<hr>
+<form [formGroup]="formularioPaises" (ngSubmit)="guardar()">
+    <!--Selector por región-->
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Continente:</label>
+            <select class="form-control" formControlName="region">
+                <option value="">-- Seleccione Continente --</option>
+                <option [value]="region | lowercase" *ngFor="let region of regiones">{{region}}</option>
+            </select>
+        </div>
+    </div>
+    <!--Selector por país-->
+    <div class="row mb-3" *ngIf="paises.length!==0">
+        <div class="col">
+            <label class="form-label">País:</label>
+            <select class="form-control" formControlName="pais">
+                <option value="">-- Seleccione País --</option>
+                <option [value]="pais.alpha3Code" *ngFor="let pais of paises">{{pais.name}}</option>
+            </select>
+        </div>
+    </div>
+    <!--Selector por frontera-->
+    <div class="row mb-3" *ngIf="fronteras.length!==0">
+        <div class="col">
+            <label class="form-label">Frontera:</label>
+            <select class="form-control" formControlName="frontera">
+                <option value="">-- Seleccione país fronterizo --</option>
+                <option [value]="frontera.alpha3Code" *ngFor="let frontera of fronteras">{{frontera.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="cargando">
+        <div class="col">
+            <div class="alert alert-primary">
+                Cargando...
+            </div>
+        </div>
+    </div>
+
+    <!--Botón de guardado-->
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary float-end">Seleccionar</button>
+        </div>
+    </div>
+</form>

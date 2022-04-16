@@ -1,7 +1,8 @@
-# Selectores
+# SelectoresApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
-
+- This is a small project for education porpuses only, in this project you can learn how to dynamically bind three selectors or more of a reactive form in Angular.
+- For this project I used an third party API for http get requests.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
